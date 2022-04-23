@@ -1,4 +1,4 @@
-![logo](http://images.shrugging.cn/toons_bart_simpson_bartsimpson_2370.ico)
+![logo](/_media/toons_bart_simpson_bartsimpson_2370.ico)
 
 # shrugginG's wiki <small>1.0</small>
 
