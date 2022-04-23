@@ -71,7 +71,7 @@
    [shrugging@VM-12-3-centos mysql]$ sudo cat /var/log/mysqld.log
    ```
    
-   ![image-20220421183657812](https://shrugging-images.oss-cn-beijing.aliyuncs.com/image-20220421183657812.png)
+   ![image-20220421183657812](https://images.shrugging.cn/image-20220421183657812.png)
 
 7. 启动 MySQL 服务 
 
