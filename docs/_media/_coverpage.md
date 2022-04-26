@@ -9,4 +9,9 @@
 - &#x2705;随便写写
 
 [GitHub](https://github.com/shrugginG)
-[Get Started](/studynotes)
+[Get Started](index)
+
+<!-- background image -->
+
+![](_media/stretched-2560-1440-423148.jpg)
+
