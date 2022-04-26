@@ -1,0 +1,7 @@
+- [返回首页](/)
+- [WorkNotes](WorkNotes/)
+  - [Database](WorkNotes/Database/)
+    - [Mysql](WorkNotes/Database/Mysql/)
+      - [centos安装mysql](WorkNotes/Database/Mysql/centos安装mysql.md)
+      - [MyNotes](WorkNotes/Database/Mysql/MyNotes.md)
+      - [Mysql技术内幕读书笔记](WorkNotes/Database/Mysql/Mysql技术内幕读书笔记.md)
