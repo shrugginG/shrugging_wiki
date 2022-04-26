@@ -34,26 +34,15 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-plugin-carbon@1"></script>
   <script>
     window.$docsify = {
-      alias: {
-        '.*?/awesome':
-          'https://raw.githubusercontent.com/docsifyjs/awesome-docsify/master/README.md',
-        '.*?/changelog':
-          'https://raw.githubusercontent.com/docsifyjs/docsify/master/CHANGELOG.md',
-        '/.*/_navbar.md': '/_navbar.md',
-        '/es/(.*)':
-          'https://raw.githubusercontent.com/docsifyjs/docs-es/master/$1',
-        '/de-de/(.*)':
-          'https://raw.githubusercontent.com/docsifyjs/docs-de/master/$1',
-        '/-ru/(.*)':
-          'https://raw.githubusercontent.com/docsifyjs/docs-ru/master/$1',
-        '/zh-cn/(.*)':
-          'https://cdn.jsdelivr.net/gh/docsifyjs/docs-zh@master/$1',
-      },
+      
       name: "shrugginG's wiki",
       auto2top: true,
       // coverpage: true,
       executeScript: true,
       loadSidebar: true,
+	  alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
       loadNavbar: true,
       mergeNavbar: true,
       maxLevel: 4,
