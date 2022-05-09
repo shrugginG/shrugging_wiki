@@ -78,8 +78,6 @@ finally {
 
 如果不需要捕获的异常对象，可以使用_代替变量名
 
-
-
 ```scala
 try {
             import collection.JavaConverters._
@@ -153,3 +151,123 @@ try {
         }
 ```
 
+## 集合
+### 主要集合特质
+
+![image-20220501163511155](https://images.shrugging.cn/image-20220501163511155.png)
+
+Iterable指的是能交出用来访问集合中所有元素的Iterator的集合。
+
+```scala
+val coll = ....// 某种Iterable
+val iter = coll.iterator
+whilr(iter.hasNext)
+	iter.next()
+```
+
+**联想到Spark中对RDD进行的所有有关partition的操作（mapPartition()）等其输入与输出类型都是某个集合的Iterator。**
+
+* Seq是一个有先后次序的值的序列，比如数组或者列表
+* Set是一组没有先后次序的值。
+* Map是一组键值对偶。
+
+### 可变和不可变集合
+
+Scala所有的集合都分为可变和不可变两类，优先默认采用不可变集合类型。
+
+如果引用可变集合类型：
+
+```scala
+import scala.collection.mutable
+
+mutable.Map[Int,String]
+```
+
+不可变集合的用途在于用其生成其他新的集合
+
+### 序列（全部继承自Set，区分先后顺序）
+
+![image-20220501165140728](https://images.shrugging.cn/image-20220501165140728.png)
+
+继承IndexedSeq后就可以通过数值下标访问序列元素
+
+* Vector是以树形结构实现的
+
+* Range表示一个整数序列，Range并不存放所有的值而是只存储起始值、结束值和增值。可以用to和until方法构建Range对象。
+
+* List
+
+  Scala中列表的结构为 List1 = head +: List2，而一个List要么是（Nil）空表，要么是一个表头元素加上一个列表。
+
+  ::操作符可以从给定的头和尾创建一个新的列表
+
+  ```scala
+  List(9,4,2)
+  9::List(4,2)
+  9:4:2:Nil
+  ```
+
+  以上三种方法都是等价的
+
+  在Scala中可以使用迭代器来遍历列表中的元素
+
+  ```scala
+  def mySum1(list: List[Int]): Int = {
+  		if (list == Nil) 0 else list.head + mySum1(list.tail)
+  	}
+  
+  // 使用模式匹配
+  def mySum2(list: List[Int]): Int = list match {
+      case Nil => 0
+      case h :: t => h + mySum2(t)
+  } 
+  ```
+
+
+
+### 集
+
+集是不重复元素的集合,默认Set是使用hashCode实现的.
+
+常见的集操作
+
+* 并集union == `|` `++`
+
+* 交集intersect == `&`
+* 差集diff == `&~` `--`
+
+### 用于添加或去除元素的操作符
+
+![image-20220501172435153](https://images.shrugging.cn/image-20220501172435153.png)
+
+### 常用方法
+
+![image-20220501172501925](https://images.shrugging.cn/image-20220501172501925.png)
+
+![image-20220501172520435](https://images.shrugging.cn/image-20220501172520435.png)
+
+![image-20220501172534914](https://images.shrugging.cn/image-20220501172534914.png)
+
+ ### 将函数映射到集合
+
+* map
+* flatMap
+
+* transform
+* groupBy
+
+### 拉链操作
+
+```scala
+val prices = List(5, 0, 20.0, 9.95)
+val quantities = List(10, 2, 1)
+(prices zip quantities).map(p => p._1 * p._2).foreach(println)
+```
+
+zipAll方法可以为较短列表指定默认值
+
+zipWithIndex方法返回对偶的列表
+
+### 迭代器
+
+可以使用iterator方法从每个集合中获得一个迭代器
